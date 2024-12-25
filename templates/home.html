@@ -2,27 +2,72 @@
 <html lang="en">
 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathan Egbuna</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nathan Egbuna</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
 
+    <body>
 
-<body>
-    <div class="center-text">
-        <h2>Nathan Egbuna</h2>
-        <p>Building cool stuff</p>
-        <div class="social-links">
-            <a href="https://github.com/negbuna" target="_blank"> <!-- _blank opens the link in a new tab -->
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/nathanegbuna/" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
+        <div id="top" class="section">
+            <div class="navbar">
+                <div class="container">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="#top">Nathan Egbuna</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-text">
+                <div class="profile-pic">
+                    <img src="{{ url_for('static', filename='profile.jpg') }}" alt="img">
+                </div>
+
+                <h2>Nathan Egbuna</h2>
+                <div class="anim-container">
+                    <p class="anim-text">Building cool stuff</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/negbuna" target="_blank"> <!-- _blank opens the link in a new tab -->
+                        <i class="fab fa-github"></i> <!-- fab is the font awesome brand icon -->
+                    </a>
+                    <a href="https://www.linkedin.com/in/nathanegbuna/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:egbunanathan@gmail.com" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+
+            <div id="about" class="section">
+                <h2>About Me</h2>
+                <p class="anchor-text">I'm a high school junior at Phillips Academy interested in the intersection of technology and finance.</p>
+            </div>
+
+            <div id="projects" class="section">
+                <h2>Projects</h2>
+                <div class="project-card">
+                    <h3>Univestal</h3>
+                    <p class="anchor-text">Multi-platform app with financial news and a paper trading simulator designed to help teenagers learn about investing through hands-on experience. A risk-free environment for understanding market dynamics and developing investment strategies.</p>
+                    <div class="image-gallery">
+                        <small class="scroll-hint">Scroll horizontally to see more →</small>
+                        <img src="{{ url_for('static', filename='univestal1.png') }}" alt="Univestal Screenshot 1">
+                        <img src="{{ url_for('static', filename='univestal2.png') }}" alt="Univestal Screenshot 2">
+                        <img src="{{ url_for('static', filename='univestal3.png') }}" alt="Univestal Screenshot 3">
+                    </div>
+                </div>
+            </div>
+    </body>
 </html>

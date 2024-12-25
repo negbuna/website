@@ -1,8 +1,12 @@
 /* First, declare the font */
 @font-face {
     font-family: 'NotoSans';
-    src: url('/static/Users/NotoSans.ttf') format('truetype');
+    src: url('NotoSans.ttf') format('truetype');
     font-weight: 100 900; /* Variable font weight range */
+}
+
+html {
+    scroll-behavior: smooth;  /* This enables smooth scrolling */
 }
 
 html, body {
@@ -13,18 +17,93 @@ html, body {
 body {
     background-color: whitesmoke;
     display: flex;
-    justify-content: center;
+    flex-direction: column;    /* Add this to stack children vertically */
     align-items: center;
 }
 
-p, h1, h2 {
+p, h1, h2, h3 {
     font-family: 'NotoSans', monospace; /* Use NotoSans with monospace fallback */
     font-weight: 500;
     text-align: center;
+    color: black
 }
 
 .center-text {
     text-align: center;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    background-color: black;
+}
+
+.container {
+    width: 97%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;  /* Changed from right to space-between */
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Center the image */
+}
+
+.profile-pic img {
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    width: 100%;  
+    justify-content: space-between;  
+}
+
+.menu ul { /* styling for unordered list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;  /* spacing between menu items */
+    color: whitesmoke;
+}
+
+.menu li { /* styling for list items */
+    display: inline-block; /* display items horizontally */
+}
+
+.menu a { /* styling for links */
+    text-decoration: none;
+    color: whitesmoke;     /* Changed from #333 to whitesmoke */
+    font-family: 'NotoSans', monospace;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover { /* what happens on hover */
+    color: #666;          /* You might want to change this too for better contrast */
 }
 
 .social-links {
@@ -41,4 +120,136 @@ p, h1, h2 {
 
 .social-links a:hover {
     color: #666;
+}
+
+.section {
+    min-height: 100vh;  /* Each section takes at least full viewport height */
+    padding: 60px 20px;  /* Add some padding (top/bottom, left/right) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;        
+}
+
+/* Add these new classes at the end of your file */
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; } /* Start with visible cursor */
+    50% { opacity: 0; } /* Halfway - cursor disappears */
+    100% { opacity: 1; }
+}
+
+.anim-container {
+    display: inline-block;
+    margin: 0;
+}
+
+.anim-text {
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.anchor-text {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 1.2em;
+}
+
+.project-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.project-card p {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.project-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.project-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.image-gallery {
+    position: relative;  /* For positioning the scroll hint */
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on */
+    scrollbar-width: thin;
+    scrollbar-color: #666 #DDD;
+    scroll-behavior: smooth;  /* Add smooth scrolling for all devices */
+    cursor: grab;  /* Shows a hand cursor to indicate draggable */
+}
+
+.image-gallery:active {
+    cursor: grabbing;  /* Changes cursor when dragging */
+}
+
+.scroll-hint {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    color: #666;
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+.image-gallery img {
+    max-height: 400px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.02);
+}
+
+/* Customize scrollbar appearance */
+.image-gallery::-webkit-scrollbar {
+    height: 8px;
+}
+
+.image-gallery::-webkit-scrollbar-track {
+    background: #DDD;
+    border-radius: 4px;
+}
+
+.image-gallery::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 4px;
 }
