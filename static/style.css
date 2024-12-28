@@ -95,7 +95,6 @@ p, h1, h2, h3 {
 }
 
 .menu a { /* styling for links */
-    text-decoration: none;
     color: whitesmoke;     /* Changed from #333 to whitesmoke */
     font-family: 'NotoSans', monospace;
     font-size: 16px;
@@ -103,7 +102,8 @@ p, h1, h2, h3 {
 }
 
 .menu a:hover { /* what happens on hover */
-    color: #666;          /* You might want to change this too for better contrast */
+    color: #666;
+    text-decoration: underline;          /* You might want to change this too for better contrast */
 }
 
 .social-links {
